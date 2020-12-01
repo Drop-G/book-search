@@ -1,0 +1,30 @@
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Header from "./components/Header";
+import Wrapper from "./components/Wrapper";
+import NothingFound from "./pages/NothingFound";
+import Search from "./pages/Search";
+import BookList from "./pages/BookList";
+import "./App.css";
+
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <NavBar />
+          <Header />
+          <Wrapper>
+            <Route exact path="/" component={Search} />
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/book-list" component={BookList} />
+            <Route exact path="/nothing-found" component={NothingFound} />
+          </Wrapper>
+        </div>
+      </Router>
+    )
+  }
+}
+
+export default App;
